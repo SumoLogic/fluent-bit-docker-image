@@ -1,5 +1,24 @@
 # Fluent Bit Docker Image
 
+This is [Sumo Logic fork](https://github.com/SumoLogic/fluent-bit-docker-image)
+of the [Fluent Bit Docker Image repository](https://github.com/fluent/fluent-bit-docker-image).
+
+To build new images for a specific version of Fluent Bit `X.Y.Z`,
+create an annotated tag on this repository like `vX.Y.Z-sumo-A`,
+where `X`, `Y`, `Z` and `A` are numbers.
+For example, to build images for Fluent Bit 1.8.12, run this:
+
+```sh
+git tag -am "v1.8.12-sumo-1" v1.8.12-sumo-1
+git push origin v1.8.12-sumo-1
+```
+
+Creating the tag will trigger GitHub Actions workflow that you can find in the `.github/workflows` directory.
+
+Original README follows.
+
+---
+
 [Fluent Bit](https://fluentbit.io) container images are available on Docker Hub ready for production usage. Our stable images are based in [Distroless](https://github.com/GoogleContainerTools/distroless) focusing on security containing just the Fluent Bit binary, minimal system libraries and basic configuration.
 
 Optionally, we provide debug images which contains Busybox that can be used to troubleshoot or testing purposes.
