@@ -3,7 +3,7 @@
 This is [Sumo Logic fork](https://github.com/SumoLogic/fluent-bit-docker-image)
 of the [Fluent Bit Docker Image repository](https://github.com/fluent/fluent-bit-docker-image).
 
-To build new images for a specific version of Fluent Bit `X.Y.Z`,
+To build and release new images for a specific version of Fluent Bit `X.Y.Z`,
 create an annotated tag on this repository like `vX.Y.Z-sumo-A`,
 where `X`, `Y`, `Z` and `A` are numbers.
 For example, to build images for Fluent Bit 1.8.12, run this:
@@ -14,6 +14,21 @@ git push origin v1.8.12-sumo-1
 ```
 
 Creating the tag will trigger GitHub Actions workflow that you can find in the `.github/workflows` directory.
+
+To build a new image locally, for example to test it before releasing, run:
+
+```sh
+./ci/build-local-x86_64.sh
+```
+
+The locally built image will be named `fluent-bit` and the tag will be the result of `git describe --tags` command.
+Override these with:
+
+```sh
+REPO_URL=custom-repo/fluent-bit BUILD_TAG=test-1 ./ci/build-local-x86_64.sh
+```
+
+This will build image named `custom-repo/fluent-bit:test-1`.
 
 Original README follows.
 
