@@ -1,4 +1,4 @@
-FROM amd64/debian:buster-slim as builder
+FROM amd64/debian:bullseye-slim as builder
 RUN mkdir -p /fluent-bit/bin /fluent-bit/etc /fluent-bit/log /tmp/fluent-bit-master/
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -49,7 +49,7 @@ COPY conf/fluent-bit.conf \
      conf/plugins.conf \
      /fluent-bit/etc/
 
-FROM gcr.io/distroless/cc-debian10
+FROM gcr.io/distroless/cc-debian11
 MAINTAINER Eduardo Silva <eduardo@treasure-data.com>
 LABEL Description="Fluent Bit docker image" Vendor="Fluent Organization" Version="1.1"
 
