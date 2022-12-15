@@ -1,4 +1,4 @@
-FROM debian:buster-slim as builder
+FROM debian:bullseye-slim as builder
 
 # Fluent Bit version
 ENV FLB_MAJOR 1
@@ -67,7 +67,7 @@ COPY --from=amd64/busybox:1.31.1 /bin/busybox /bin/busybox
 RUN chmod 555 /bin/busybox && \
     /bin/busybox --install -s /usr/local/bin
 
-FROM gcr.io/distroless/cc-debian10
+FROM gcr.io/distroless/cc-debian11
 MAINTAINER Eduardo Silva <eduardo@treasure-data.com>
 LABEL Description="Fluent Bit docker image" Vendor="Fluent Organization" Version="1.1"
 
